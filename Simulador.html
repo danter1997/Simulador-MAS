@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simulador MAS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+</head>
+
+
+<body bgcolor="#E6E6E6">
+  <font face="arial">
+    <script src="p5.js"></script>
+    <script src="functions.js"></script>
+    <script src="canvas.js"></script>
+    <form action="teoria.html" id="form">
+      <table border="0">
+        <tr>
+          <td colspan="3">
+            <div id="canvas"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="column">Masa del objeto</td>
+          <td>
+            <input type="number" id="mass" value="10" min="1" max="20">
+            Kg
+          </td>
+          <td rowspan="5" align="center">
+            <button type="submit"><p class="button">ECUACIONES</p></button>
+          </td>
+        </tr>
+        <tr>
+          <td class="column">Masa de la polea</td>
+          <td>
+            <input type="number" id="pulleyMass" value="10" min="1" max="20">
+            Kg
+          </td>
+        </tr>
+        <tr>
+          <td class="column">Constante Elástica</td>
+          <td>
+            <input type="number" id="springConstant" value="100" min="10" max="100">
+            N/m
+          </td>
+        </tr>
+        <tr>
+          <td class="column">Desplazamiento inicial</td>
+          <td>
+            <input type="number" id="initialDisplacement" value="5" min="-5" max="5">
+            Mts
+          </td>
+        </tr>
+        <tr>
+          <td class="column">Velocidad inicial</td>
+          <td>
+            <input type="number" id="initialVelocity" value="0" min="-5" max="5">
+            Mts/seg
+          </td>
+        </tr>
+      </table>
+    </form>
+  </font>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simulador MAS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<body bgcolor="#E6E6E6">
+  <script src="p5.js"></script>
+  <script src="canvas2.js"></script>
+  <table class="canvasTable">
+    <tr>
+      <td rowspan="3" class="top">
+        <div id="canvas2"></div>
+      </td>
+      <td class="top" colspan="2">
+        <p>
+          Diagrama de cuerpo libre:
+          \begin{align}
+          \sum F_m &= m\ddot{x} \\\\
+          T - mg &= m\ddot{x} \ \ \ \ \ (1)
+          \end{align}
+        </p>
+      </td>
+
+    </tr>
+    <tr>
+      <td class="top" colspan="2">
+        <p>
+          Ecuación de movimiento angular de la polea:
+          \begin{equation}
+
+          \begin{aligned}
+          \sum M_o &= I \alpha \\
+          T R - F k R &= I \alpha \\
+          T R - \bigl(k (x + x_o) R \bigr) &= I \ddot{\theta} \ \ \ \ \ \ \ (2)
+          \end{aligned}
+
+          \end{equation}
+        </p>
+      </td>
+
+    </tr>
+    <tr>
+      <td class="top" colspan="2">
+        <p>
+          Cuando el sistema está en equilibrio se presenta la siguiente igualdad:
+          \[
+          mgR = kx_oR
+          \]
+          \begin{aligned}
+          \theta &= \frac{x}{R} \\
+          \ddot{\theta} &= \frac{\ddot{x}}{R}
+          \end{aligned}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="bot1" rowspan="2">
+        <p class="title">
+          Fuerzas y torques: <br>
+        </p>
+        <p>
+          El momento de inercia de la polea es:
+          \begin{equation}
+          \frac{1}{2} M r^2
+          \end{equation}
+
+          Por lo cual la ecuación 2 queda:
+
+          \begin{aligned}
+          T R - (k (x + x_o) R) &= I \ddot{\theta} \\
+
+          R (m g + m \ddot{x}) - k x R - m g R &= \frac{1}{2} M R^\cancel{2}
+          \left(\frac{\ddot{x}}{\cancel{R}}\right) \\
+
+          \cancel{R}(\cancel{mg} + m\ddot{x} - kx - \cancel{mg}) &= \frac{1}{2}M\cancel{R} \ddot{x} \\
+
+          -m\ddot{x} - kx &= \frac{1}{2}M\ddot{x} \\
+
+          \frac{1}{2}M\ddot{x} + m\ddot{x} + kx &= 0 \\
+
+          \ddot{x}\left(\frac{1}{2}M + m \right) &= -kx \\
+
+          \ddot{x} &= \frac{-k}{M/2 + m}x \\
+
+          \omega &= \sqrt{\frac{k}{M/2 + m}}
+          \end{aligned}
+        </p>
+      </td>
+      <td class="bot2" rowspan="2">
+        <p class="title">
+          Energías:
+        </p>
+        <p>
+          \begin{aligned}
+          E &= K + K_R + U = constante\\\\
+          E &= \frac{1}{2}m \dot{x}^2 + \frac{1}{2}IW^2 + \frac{1}{2}kx^2 \\\\
+          E &= \frac{1}{2}m \dot{x}^2 + \frac{1}{2}IW^2 + \frac{1}{2}kx^2 \\\\
+          E &= \frac{1}{2}m \dot{x}^2 + \frac{1}{2}\left(\frac{1}{2}M\cancel{R^2} \right)
+          \left(\frac{1}{\cancel{R}}\dot{x} \right)^\cancel{2} + \frac{1}{2}kx^2 \\\\
+          E &= \frac{1}{2}m \dot{x}^2 + \frac{1}{4}M\dot{x}^2 + \frac{1}{2}kx^2 \\\\
+          E &= \frac{1}{2}\left(m + \frac{M}{2}\right)\dot{x}^2 + \frac{1}{2}kx^2 \\\\
+          \frac{dE}{dt} &= 0 = \left(m + \frac{M}{2} \right) \dot{x}\ddot{x} + kx\dot{x} \\\\
+          &\left[ \left(m + \frac{M}{2} \right) \ddot{x} + kx \right]\dot{x} = 0 \rightarrow \dot{x} \neq 0 \\
+          \end{aligned}
+        </p>
+      </td>
+      <td class="bot2">
+        <p>
+          \begin{aligned}
+          &\left(m + \frac{M}{2} \right) \ddot{x} + kx = 0 \\\\
+          &\ddot{x} + \frac{k}{m + \frac{M}{2}}x = 0 \\\\
+          & \ddot{x} = \frac{-k}{M/2 + m}x \\\\
+          & \omega = \sqrt{\frac{k}{M/2 + m}}
+          \end{aligned}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="button">
+        <form action="Simulador.html">
+          <button type="submit"><p class="button">SIMULADOR</p></button>
+        </form>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
